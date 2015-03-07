@@ -21,11 +21,11 @@ def sysStat(sleep=5):
     print 'Cou \t CPU \t Mem \t Sent \t Recv'
     filelog.write('Count \t CPU \t Mem \t Sent \t Recv\n')
     while True:
-        netSentStart = psutil.net_io_counters()[0]
-        netRecvStart = psutil.net_io_counters()[1]
+        netSentStart = psutil.network_io_counters()[0]
+        netRecvStart = psutil.network_io_counters()[1]
         time.sleep(1)
-        netSentEnd = psutil.net_io_counters()[0]
-        netRecvEnd = psutil.net_io_counters()[1]
+        netSentEnd = psutil.network_io_counters()[0]
+        netRecvEnd = psutil.network_io_counters()[1]
     
         netSent = (netSentEnd - netSentStart)/1024
         netRecv = (netRecvEnd - netRecvStart)/1024

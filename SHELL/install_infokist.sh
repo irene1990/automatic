@@ -8,6 +8,7 @@ apt-get update
 apt-get -y --force-yes dist-upgrade
 apt-get install scutech-nas-plugin
 apt-get install infokist
+apt-get install git
 apt-get install scutech-tapelib-server
 sudo useradd -M -s /sbin/nologin obackup
 apt-get install samba
