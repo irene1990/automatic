@@ -18,7 +18,7 @@ def sysStat(sleep=5):
     fname=fname+'.xls'
     filelog = open(fname,'w')
     count = 1
-    print 'Cou \t CPU \t Mem \t Sent \t Recv'
+    print ('Cou \t TIME \t \t \t CPU \t Mem \t Sent \t Recv ')
     filelog.write('Count \t CPU \t Mem \t Sent \t Recv\n')
     while True:
         netSentStart = psutil.network_io_counters()[0]
@@ -33,8 +33,8 @@ def sysStat(sleep=5):
         cpu = psutil.cpu_percent()
         memory = psutil.virtual_memory()[2]
 
-        message = str(count) + '\t' + '% 4.1f'%cpu +'\t'+'% 4.1f'%memory +'\t' + '%.2f'%netSent + '\t' + '%.2f'%netRecv 
-        print message
+        message = str(count) + '\t' +time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+ '\t' +'% 4.1f'%cpu +'\t'+'% 4.1f'%memory +'\t' + '%.2f'%netSent + '\t' + '%.2f'%netRecv 
+        print (message)
         filelog.write(message+'\n')
         count+=1
 
